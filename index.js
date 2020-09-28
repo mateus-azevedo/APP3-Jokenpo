@@ -1,21 +1,38 @@
 import React, {Component} from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {AppRegistry, Button, StyleSheet, Text, View} from 'react-native';
 
 class MeuComponente extends Component {
   render() {
     return (
       <View>
-        <Text>{this.props.propriedade1}</Text>
-        <Text>{this.props.xyz}</Text>
-        <Text>{this.props.p}</Text>
+        <Text>{this.props.teste}</Text>
       </View>
     );
   }
 }
 
 class app3 extends Component {
-  render() {
-    return <MeuComponente propriedade1='Banana' xyz='Abacaxi' p='Uva' />;
+
+  constructor(props){
+    super(props);
+
+    this.state = { texto : 'Texto teste2'};
+  }
+  
+  alteraTexto(){
+    this.setState({ texto : 'Outra Coisa'});
+  }
+  
+  render(){
+    return (
+      <View>
+        <MeuComponente teste={this.state.texto} />
+        <Button 
+          title='Botão'
+          onPress={() => { this.alteraTexto()}}
+        />
+      </View>
+    );
   }
 }
 
