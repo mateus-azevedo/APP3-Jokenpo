@@ -1,39 +1,30 @@
 import React, {Component} from 'react';
 import {AppRegistry, Button, StyleSheet, Text, View} from 'react-native';
 
-class MeuComponente extends Component {
-  render() {
-    return (
-      <View>
-        <Text>{this.props.teste}</Text>
-      </View>
-    );
-  }
-}
-
 class app3 extends Component {
 
   constructor(props){
     super(props);
 
-    this.state = { texto : 'Texto teste2'};
+    this.state = { escolhaUsuario : ''}
   }
-  
-  alteraTexto(){
-    this.setState({ texto : 'Outra Coisa'});
+
+  jokenpo(escolhaUsuario){
+    this.setState({ escolhaUsuario : escolhaUsuario });
   }
   
   render(){
-    return (
-      <View>
-        <MeuComponente teste={this.state.texto} />
-        <Button 
-          title='Botão'
-          onPress={() => { this.alteraTexto()}}
-        />
-      </View>
-    );
+      return (
+        <View>
+          <Text>Escolha do Computador</Text>
+          <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
+          <Text>Resultado</Text>
+          <Button title='pedra' onPress={ () => {this.jokenpo('pedra')} } />
+          <Button title='papel' onPress={ () => {this.jokenpo('papel')} } />
+          <Button title='tesoura' onPress={ () => {this.jokenpo('tesoura')} } />
+        </View>
+      );
+    }
   }
-}
 
 AppRegistry.registerComponent('app3', () => app3);
