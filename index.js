@@ -99,11 +99,12 @@ class app3 extends Component {
 
           </View>
           
-          <View></View>
+          <View style={styles.palco}>
+            <Text style={styles.txtResultado}>{this.state.resultado}</Text>
+            <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
+            <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
+          </View>
 
-          <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
-          <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
-          <Text>Resultado: {this.state.resultado}</Text>
         </View>
       );
     }
@@ -127,6 +128,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10
+  },
+  palco: {
+    alignItems: 'center',
+    marginTop: 10
+  },
+  txtResultado: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: 'red',
+    height: 60
   }
 });
 
