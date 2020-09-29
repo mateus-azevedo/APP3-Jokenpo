@@ -102,11 +102,9 @@ class app3 extends Component {
           <View style={styles.palco}>
             <Text style={styles.txtResultado}>{this.state.resultado}</Text>
             
-            <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
-            <Image source={require('./imgs/tesoura.png')} />
-            
-            <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
-            <Image source={require('./imgs/tesoura.png')} />
+            <Icone escolha={this.state.escolhaComputador} jogador='Computador'></Icone>
+
+            <Icone escolha={this.state.escolhaUsuario} jogador='Usuário'></Icone>
           </View>
 
         </View>
@@ -121,6 +119,37 @@ class Topo extends Component{
         <Image source={require('./imgs/jokenpo.png')} />
       </View>
     );
+  }
+}
+
+class Icone extends Component{
+  render(){
+    //this.props.escolha
+    //this.props.jogador
+    if(this.props.escolha == 'pedra'){
+      return(
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/pedra.png')} />
+        </View>
+      );
+    } else if(this.props.escolha == 'papel'){
+      return(
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/papel.png')} />
+        </View>
+      );
+    } else if(this.props.escolha == 'tesoura'){
+      return(
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/tesoura.png')} />
+        </View>
+      );
+    } else {
+      return false;
+    }
   }
 }
 
