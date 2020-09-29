@@ -18,86 +18,83 @@ class app3 extends Component {
 
   jokenpo(escolhaUsuario) {
 
-    var numAleatorio = Math.floor(Math.random() * 3);
+    const numAleatorio = Math.floor(Math.random() * 3);
 
-    var escolhaComputador = '';
+    let escolhaComputador = '';
 
     switch (numAleatorio) {
       case 0: escolhaComputador = 'pedra'; break;
       case 1: escolhaComputador = 'papel'; break;
       case 2: escolhaComputador = 'tesoura'; break;
+      default: escolhaComputador = '';
     }
 
-    var resultado = '';
+    let resultado = '';
 
-    if (escolhaComputador == 'pedra') {
-      if (escolhaUsuario == 'pedra') {
+    if (escolhaComputador === 'pedra') {
+      if (escolhaUsuario === 'pedra') {
         resultado = 'Empate';
       }
 
-      if (escolhaUsuario == 'papel') {
+      if (escolhaUsuario === 'papel') {
         resultado = 'Você ganhou';
       }
 
-      if (escolhaUsuario == 'tesoura') {
+      if (escolhaUsuario === 'tesoura') {
         resultado = 'Computador ganhou'
       }
     }
 
-    if (escolhaComputador == 'papel') {
-      if (escolhaUsuario == 'papel') {
+    if (escolhaComputador === 'papel') {
+      if (escolhaUsuario === 'papel') {
         resultado = 'Empate';
       }
 
-      if (escolhaUsuario == 'tesoura') {
+      if (escolhaUsuario === 'tesoura') {
         resultado = 'Você ganhou';
       }
 
-      if (escolhaUsuario == 'pedra') {
+      if (escolhaUsuario === 'pedra') {
         resultado = 'Computador ganhou'
       }
     }
 
-    if (escolhaComputador == 'tesoura') {
-      if (escolhaUsuario == 'tesoura') {
+    if (escolhaComputador === 'tesoura') {
+      if (escolhaUsuario === 'tesoura') {
         resultado = 'Empate';
       }
 
-      if (escolhaUsuario == 'pedra') {
+      if (escolhaUsuario === 'pedra') {
         resultado = 'Você ganhou';
       }
 
-      if (escolhaUsuario == 'papel') {
+      if (escolhaUsuario === 'papel') {
         resultado = 'Computador ganhou'
       }
     }
 
 
-    this.setState({
-      escolhaUsuario: escolhaUsuario,
-      escolhaComputador: escolhaComputador,
-      resultado: resultado
-    });
+    this.setState({ escolhaUsuario, escolhaComputador, resultado }); //existe uma inteligência para entender que o valor contido dentro da variável deve ser atribuido para variável de mesmo nome
 
   }
 
   render() {
     return (
       <View>
-        <Topo></Topo>
+        <Topo />
 
         <View style={styles.painelAcoes}>
 
           <View style={styles.btnEscolha}>
-            <Button title='pedra' onPress={() => { this.jokenpo('pedra') }} />
+            <Button title='pedra' onPress={() => { this.jokenpo('pedra'); }} />
           </View>
 
           <View style={styles.btnEscolha}>
-            <Button title='papel' onPress={() => { this.jokenpo('papel') }} />
+            <Button title='papel' onPress={() => { this.jokenpo('papel'); }} />
           </View>
 
           <View style={styles.btnEscolha}>
-            <Button title='tesoura' onPress={() => { this.jokenpo('tesoura') }} />
+            <Button title='tesoura' onPress={() => { this.jokenpo('tesoura'); }} />
           </View>
 
         </View>
@@ -105,9 +102,9 @@ class app3 extends Component {
         <View style={styles.palco}>
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
-          <Icone escolha={this.state.escolhaComputador} jogador='Computador'></Icone>
+          <Icone escolha={this.state.escolhaComputador} jogador='Computador' />
 
-          <Icone escolha={this.state.escolhaUsuario} jogador='Você'></Icone>
+          <Icone escolha={this.state.escolhaUsuario} jogador='Você' />
         </View>
 
       </View>
