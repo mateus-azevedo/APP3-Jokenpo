@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-class Icone extends Component{
-  render(){
+class Icone extends Component {
+  render() {
     //this.props.escolha
     //this.props.jogador
-    if(this.props.escolha == 'pedra'){
-      return(
+    if (this.props.escolha == 'pedra') {
+      return (
         <View style={styles.icone}>
           <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('../../imgs/pedra.png')} />
         </View>
       );
 
-    } else if(this.props.escolha == 'papel'){
-      return(
+    } else if (this.props.escolha == 'papel') {
+      return (
         <View style={styles.icone}>
           <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('../../imgs/papel.png')} />
         </View>
       );
 
-    } else if(this.props.escolha == 'tesoura'){
-      return(
+    } else if (this.props.escolha == 'tesoura') {
+      return (
         <View style={styles.icone}>
           <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('../../imgs/tesoura.png')} />
