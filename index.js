@@ -101,8 +101,12 @@ class app3 extends Component {
           
           <View style={styles.palco}>
             <Text style={styles.txtResultado}>{this.state.resultado}</Text>
+            
             <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
+            <Image source={require('./imgs/tesoura.png')} />
+            
             <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
+            <Image source={require('./imgs/tesoura.png')} />
           </View>
 
         </View>
