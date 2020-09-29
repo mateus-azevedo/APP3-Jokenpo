@@ -33,7 +33,7 @@ class app3 extends Component {
       }
 
       if(escolhaUsuario == 'papel'){
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
 
       if(escolhaUsuario == 'tesoura'){
@@ -47,7 +47,7 @@ class app3 extends Component {
       }
 
       if(escolhaUsuario == 'tesoura'){
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
 
       if(escolhaUsuario == 'pedra'){
@@ -61,7 +61,7 @@ class app3 extends Component {
       }
 
       if(escolhaUsuario == 'pedra'){
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
 
       if(escolhaUsuario == 'papel'){
@@ -104,7 +104,7 @@ class app3 extends Component {
             
             <Icone escolha={this.state.escolhaComputador} jogador='Computador'></Icone>
 
-            <Icone escolha={this.state.escolhaUsuario} jogador='Usuário'></Icone>
+            <Icone escolha={this.state.escolhaUsuario} jogador='Você'></Icone>
           </View>
 
         </View>
@@ -128,22 +128,22 @@ class Icone extends Component{
     //this.props.jogador
     if(this.props.escolha == 'pedra'){
       return(
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/pedra.png')} />
         </View>
       );
     } else if(this.props.escolha == 'papel'){
       return(
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/papel.png')} />
         </View>
       );
     } else if(this.props.escolha == 'tesoura'){
       return(
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/tesoura.png')} />
         </View>
       );
@@ -171,6 +171,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red',
     height: 60
+  },
+  icone: {
+    alignItems: 'center',
+    marginBottom: 20
+  },
+  txtJogador: {
+    fontSize: 18
   }
 });
 
